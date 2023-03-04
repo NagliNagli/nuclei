@@ -56,8 +56,8 @@ func (exporter *Exporter) Export(event *output.ResultEvent) error {
 
 	filenameBuilder := &strings.Builder{}
 	filenameBuilder.WriteString(event.TemplateID)
-// 	filenameBuilder.WriteString("-")
-// 	filenameBuilder.WriteString(strings.ReplaceAll(strings.ReplaceAll(event.Matched, "/", "_"), ":", "_"))
+	filenameBuilder.WriteString("-")
+	filenameBuilder.WriteString(strings.ReplaceAll(strings.ReplaceAll(event.Host, "/", "_"), ":", "_"))
 
 // 	var suffix string
 // 	if event.MatcherName != "" {
