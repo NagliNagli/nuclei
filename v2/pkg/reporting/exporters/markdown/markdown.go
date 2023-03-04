@@ -56,19 +56,19 @@ func (exporter *Exporter) Export(event *output.ResultEvent) error {
 
 	filenameBuilder := &strings.Builder{}
 	filenameBuilder.WriteString(event.TemplateID)
-	filenameBuilder.WriteString("-")
-	filenameBuilder.WriteString(strings.ReplaceAll(strings.ReplaceAll(event.Matched, "/", "_"), ":", "_"))
+// 	filenameBuilder.WriteString("-")
+// 	filenameBuilder.WriteString(strings.ReplaceAll(strings.ReplaceAll(event.Matched, "/", "_"), ":", "_"))
 
-	var suffix string
-	if event.MatcherName != "" {
-		suffix = event.MatcherName
-	} else if event.ExtractorName != "" {
-		suffix = event.ExtractorName
-	}
-	if suffix != "" {
-		filenameBuilder.WriteRune('-')
-		filenameBuilder.WriteString(event.MatcherName)
-	}
+// 	var suffix string
+// 	if event.MatcherName != "" {
+// 		suffix = event.MatcherName
+// 	} else if event.ExtractorName != "" {
+// 		suffix = event.ExtractorName
+// 	}
+// 	if suffix != "" {
+// 		filenameBuilder.WriteRune('-')
+// 		filenameBuilder.WriteString(event.MatcherName)
+// 	}
 	filenameBuilder.WriteString(".md")
 	finalFilename := sanitizeFilename(filenameBuilder.String())
 
